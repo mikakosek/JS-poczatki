@@ -1,19 +1,20 @@
-/* pierwszy skrypt JS w kodilli */
-var name = prompt('Wpisz swoje imię');
-// alert('Witaj, ' + name);
-console.log('Witaj , ' + name);
-
-/* funkcja wyliczająca pole trójkąta */
-function getTriangleArea(a, h) {
-    if (a <= 0 || h <= 0) {
+/* funkcja rysująca choinkę */
+function rysujChoinke(liczbaPoziomow) {
+    if (liczbaPoziomow < 1) {
         return "Nieprawidłowe dane";
     }
-    
-    return a * h / 2;
+    var star = "";
+    for (var i = 1; i < liczbaPoziomow; i++) {
+        star += " ";
+    }
+    star += "*";
+    console.log(star);
+    for (var i = 1; i < liczbaPoziomow; i++) {
+        star = star.replace(" *","**").concat("*");
+        console.log(star);
+    }
+    return;
 }
 
-var triangle1Area = getTriangleArea(Math.floor((Math.random() * 100) + 1), Math.floor((Math.random() * 100) + 1)),
-    triangle2Area = getTriangleArea(Math.floor((Math.random() * 100) + 1), Math.floor((Math.random() * 100) + 1)),
-    triangle3Area = getTriangleArea(Math.floor((Math.random() * 100) + 1), Math.floor((Math.random() * 100) + 1));
-
-console.log('Pola trójkątów wynoszą: ' + triangle1Area + ', ' + triangle2Area + ' i ' + triangle3Area);
+var liczba = prompt("Podaj liczbę poziomów");
+rysujChoinke(liczba);
